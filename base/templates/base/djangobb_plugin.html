@@ -1,0 +1,19 @@
+<h1>FORUM</h1>
+
+<div class="list-group">
+
+    {% for post in posts %}
+
+    <a href="{{ post.topic.get_absolute_url }}" class="list-group-item">
+        <div class="avatar">
+            <img src="img/images/forum-portrait-icon.jpg" alt="">
+            <span class="author">{{ post.user.username }}</span>
+        </div>
+        <p class="forum-post">
+            <span class="forum">{{ post.topic.forum }}</span> / <span class="topic">{{ post.topic }}</span> / <span class="post">{{ post.body_html|safe|truncatewords:30 }}</span>
+        </p>
+    </a>
+    {% endfor %}
+
+
+</div>

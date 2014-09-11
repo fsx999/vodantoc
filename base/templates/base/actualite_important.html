@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    {% for post in posts %}
+        {% if forloop.first %}
+            <article class="showing">
+            {% if post.image %}
+            <div class="showcase-image">
+                    <img src="{{ post.image.url }}">
+                </div>
+            {% endif %}
+
+                <div class="showcase-texts" {% if not post.image %}
+                style="width: 100%;"
+                {% endif %} >
+
+                    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+
+                    {{ post.html_content|safe}}
+                </div>
+            </article>
+        {% else %}
+            {% if forloop.counter0 == 1 %}
+                <section id="other">
+            {% endif %}
+        <article>
+
+            <h2> <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+
+             {{ post.html_content|safe}}
+        </article>
+        {% if forloop.last %}
+            </section>
+        {% endif %}
+        {% endif %}
+    {% endfor %}
+  </div>
+</div>

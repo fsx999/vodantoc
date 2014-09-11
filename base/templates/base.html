@@ -1,0 +1,92 @@
+{% load cms_tags sekizai_tags menu_tags %}
+{% load static from staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>FIVV-SLQT</title>
+
+    {% render_block "css" %}
+    {% addtoblock 'js' %}
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    {% endaddtoblock %}
+    {% addtoblock 'css' %}
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+        <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+        <link rel="shortcut icon" href="{% static "ico/favicon.ico" %}">
+    {% endaddtoblock %}
+
+    <link rel="home" href="{% url 'zinnia_entry_archive_index' %}"/>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+{#      <script src="{% static "js/html5shiv.js" %}></script>#}
+{#      <script src="{% static "js/respond.min.js" %}></script>#}
+    <![endif]-->
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" type="text/css" media="screen, projection" href="{{ STATIC_URL }}zinnia/css/ie.css" />
+    <![endif]-->
+
+</head>
+<body>
+
+{% cms_toolbar %}
+
+<div class="container">
+    <div class="header clearfix">
+
+            <center>
+                <a rel="home" title="Ecole Francaise de Vo Dan Toc" href="/">
+                    <img src="{% static 'image/site0.jpg' %}" alt=""/>
+                </a></center>
+
+    </div>
+
+
+{% block menu %}
+    <div class="navbar clearfix navbar-default" role="navigation">
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+            {% show_menu 0 100 100 100 %}
+            <li><a href="{% url 'zinnia_entry_archive_index' %}">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+
+            <li>
+                <a href="{% url 'zinnia_sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">
+                    {% trans "Sitemap" %}
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'zinnia_entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}"
+                   class="feeds">
+                    {% trans "RSS Feed" %}
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+{% endblock %}
+<ol class="breadcrumb">
+    {% if  request.current_page.level == 0 %}
+        <li  class="active">
+           {{ request.current_page |capfirst }}
+        </li>
+    {% else %}
+    {% show_breadcrumb 1 %}
+    {% endif %}
+</ol>
+  <div class="content">
+{% block content %}{% endblock %}
+  </div>
+{% render_block "js" %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+<h1>AGENDA</h1>
+<div class="agenda-container">
+    {% for event in events %}
+        <article class="first-agenda">
+        <date>{{ event.start|date:'d-m-Y'}} / {{ event.end|date:'d-m-y'}}</date>
+        <h3>{{ event.title }}</h3>
+        <p>{{ event.description }}</p>
+    </article>
+    {% endfor %}
+
+</div>

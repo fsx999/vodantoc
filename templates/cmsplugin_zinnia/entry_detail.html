@@ -1,0 +1,106 @@
+{% load i18n comments %}
+{% load url from future %}
+
+<div class="well">
+<ul id="myTab" class="nav nav-tabs">
+    {% for object in entries %}
+    <li {% if forloop.first %} class="active" {% endif %} >
+    <a data-toggle="tab" href="#{{ forloop.counter }}">{{ object.title }}</a>
+    </li>
+    {% endfor %}
+
+</ul>
+<div id="myTabContent" class="tab-content">
+{% for object in entries %}
+
+{#  {% include object.content_template with object_content=object.html_content|truncatewords_html:100|safe continue_reading=1 %}#}
+<div id="{{ forloop.counter }}" class="tab-pane fade {% if forloop.first %}active in {% endif %} panel">
+<div id="entry-{{ object.pk }}" class="hentry{% if object.featured %} featured{% endif %}">
+  {% block entry-header %}
+  <div class="entry-header">
+    {% block entry-title %}
+    <h2 class="entry-title">
+      <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+        {{ object.title }}
+      </a>
+    </h2>
+    {% endblock %}
+    {% block entry-info %}
+
+    {% endblock %}
+    {% block entry-last-update %}
+    <p class="entry-last-update">
+      {% trans "Last update on" %} <abbr class="updated" title="{{ object.last_update|date:"c" }}">{{ object.last_update|date:"DATE_FORMAT" }}</abbr>.
+    </p>
+    {% endblock %}
+  </div>
+  {% endblock %}
+
+  {% block entry-body %}
+  <div class="entry-body">
+    {% block entry-image %}
+    {% if object.image %}
+    <div class="entry-image">
+      <p>
+        {% if continue_reading %}
+        <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+          {% endif %}
+          <img src="{{ object.image.url }}" alt="{{ object.title }}" class="left" />
+          {% if continue_reading %}
+        </a>
+        {% endif %}
+      </p>
+    </div>
+    {% endif %}
+    {% endblock %}
+    {% block entry-content %}
+    <div class="entry-content">
+      {{ object.html_content|safe}}
+      {{ object.excerpt|safe}}
+    </div>
+    {% endblock %}
+    {% block continue-reading %}
+    {% if continue_reading %}
+    <p class="continue-reading">
+      <a href="{{ object.get_absolute_url }}"
+         title="{% blocktrans with object=object.title %}Continue reading {{ object }}{% endblocktrans %}"
+         rel="bookmark">
+        {% trans "Continue reading" %}
+      </a>
+    </p>
+    {% endif %}
+    {% endblock %}
+  </div>
+  {% endblock %}
+
+  {% block entry-footer %}
+  <div class="entry-footer">
+    {% block entry-shorturl %}
+    <p class="entry-shorturl">
+      <a href="{{ object.get_absolute_url }}"
+         title="{% blocktrans with object=object.title %}Voir article {{ object }}{% endblocktrans %}"
+         rel="shortlink">
+        Voir article
+      </a>
+    </p>
+    {% endblock %}
+
+  </div>
+  {% endblock %}
+</div>
+</div>
+{% empty %}
+  <p class="notice">{% trans "No entries yet." %}</p>
+{% endfor %}
+
+<script>
+    $(document).ready(function(){
+       $('#myTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+    });
+
+    });
+</script>
+</div>
+</div>

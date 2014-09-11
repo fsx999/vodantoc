@@ -1,0 +1,108 @@
+{% load i18n thumbnail sekizai_tags cms_tags %}
+{% load static from staticfiles %}
+{% addtoblock "css" %}<link href="{% static 'lightbox/css/lightbox.css'%}" rel="stylesheet" />{% endaddtoblock "css" %}
+{% addtoblock "js" %}<script type="text/javascript" src="{% static 'lightbox/js/lightbox-2.6.min.js' %}"></script>{% endaddtoblock "js" %}
+{% addtoblock "js" %}
+
+{% endaddtoblock %}
+
+
+{% if object.view_option == "list" %}
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{% firstof object.title object.folder.name  %}</h3>
+  </div>
+<div class="panel-body">
+    <div class="cmsplugin_filer_folder_list" id="folder_{{ instance.id }}">
+        <!--The files should go there    -->
+        {% if folder_children %}
+        <ul>
+            {% for folder in folder_children %}
+                <li>{{ folder }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if folder_files %}
+        <ul>
+            {% for files in folder_files %}
+                <li>{{ files }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if folder_images %}
+
+            {% for image in folder_images %}
+                {% if forloop.counter0|divisibleby:12%}
+                <div class="row">
+                {% endif%}
+                <div class="col-xs-1">
+
+                    <a href="{{ image.file.url }}" data-lightbox="image" class="thumbnail">
+                       <img src="{% thumbnail image.file 200x200 crop="True" upscale="True"%}"
+                                           width="100%" height="100" alt="{{ image.label }}">
+                    </a>
+
+                </div>
+                {% if forloop.counter|divisibleby:12 %}
+                </div>
+                {% endif%}
+            {% endfor %}
+
+        {% endif %}
+    </div>
+</div>
+</div>
+</div>
+{% elif object.view_option == "list_z" %}
+
+    <h3 class="panel-title">{% firstof object.title object.folder.name  %}</h3>
+
+
+    <div class="cmsplugin_filer_folder_list" id="folder_{{ instance.id }}">
+        <!--The files should go there    -->
+        {% if folder_children %}
+        <ul>
+            {% for folder in folder_children %}
+                <li>{{ folder }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if folder_files %}
+        <ul>
+            {% for files in folder_files %}
+                <li>{{ files }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if folder_images %}
+
+            {% for image in folder_images %}
+                {% if forloop.counter0|divisibleby:6%}
+                <div class="row">
+                {% endif%}
+                <div class="col-xs-2">
+
+                    <a href="{{ image.file.url }}" data-lightbox="image" class="thumbnail">
+                       <img src="{% thumbnail image.file 200x200 crop="True" upscale="True"%}"
+                                           width="100%" height="100" alt="{{ image.label }}">
+                    </a>
+
+                </div>
+                {% if forloop.counter|divisibleby:6 %}
+                </div>
+                {% endif%}
+            {% endfor %}
+
+        {% endif %}
+    </div>
+
+{% else %}
+    <!-- start: slideshow -->
+    <div class="cmsplugin_filer_folder_slidshow" id="folder_{{ object.id }}">
+        {% for image in folder_images %}
+            <img src="{% thumbnail image.file 200x200 crop="True" upscale="True" %}">
+        {% endfor %}
+    </div>
+    <!-- end: gallery -->
+{% endif %}
+

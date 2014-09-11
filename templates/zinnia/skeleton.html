@@ -1,0 +1,139 @@
+{% load i18n staticfiles %}
+{% load cms_tags sekizai_tags menu_tags %}
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vo Vietnam{% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
+    <meta name="robots" content="follow, all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}" />
+    <meta name="keywords" content="{% block meta-keywords %}Vo vietnam arts martiaux{% endblock meta-keywords %}" />
+    {% block meta %}{% endblock meta %}
+  {% render_block "css" %}
+    <link rel="pingback" href="/xmlrpc/" />
+    <link rel="home" href="{% url 'zinnia_entry_archive_index' %}" />
+    <link rel="stylesheet" href="{% static "zinnia_bootstrap/bootstrap/css/bootstrap.min.css" %}" />
+    <style type="text/css">
+      body > nav img {
+        margin-top: 5px;
+        margin-left: 10px;
+      }
+      p.entry-discussions {
+        margin-bottom: 0px;
+      }
+    </style>
+    <!--[if lt IE 9]>
+        <script src="{% static "zinnia_bootstrap/assets/js/html5shiv.js" %}"></script>
+        <script src="{% static "zinnia_bootstrap/assets/js/respond.min.js" %}"></script>
+
+    <![endif]-->
+  <link href="{% static 'css/custom-bootstrap.css' %}" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link rel="shortcut icon" href="{% static "zinnia/img/favicon.ico" %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-144-precomposed.png" %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-114-precomposed.png" %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-72-precomposed.png" %}" />
+    <link rel="apple-touch-icon-precomposed" href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-57-precomposed.png" %}" />
+    {% block link %}{% endblock link %}
+    {% block script %}{% endblock script %}
+  </head>
+  <body class="zinnia {% block body-class %}{% endblock body-class %}">
+  {% cms_toolbar %}
+  <div class="bg-deco-right">
+    <header class="logo-container">
+        <a href="/">
+        <img class="clouds" alt="nuages" src="{% static 'img/clouds.png' %}">
+        <img class="logo-big"
+             alt="Blazon de la Fédération Internationale de Vo Viet Nam FIVV - SLQT Son Long Quyen Thuat"
+             src="{% static 'img/logo-only.png' %}">
+        <img class="logo-small"
+             alt="Blazon de la Fédération Internationale de Vo Viet Nam FIVV - SLQT Son Long Quyen Thuat"
+             src="{% static 'img/logo-sm.png' %}">
+    </header></a>
+  <div class="container">
+  <div class="bg-content">
+      <nav class="navbar navbar-default row" role="navigation">
+                    <!-- navbar toggle -->
+                    <div class="navbar-header col-md-12">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                        {#        <div class="nav-collapse collapse">#}
+                        <ul class="nav navbar-nav">
+                            {% show_menu 0 100 100 100 %}
+
+                        </ul>
+                        {% block menu_zinia %}
+                            <ul class="nav navbar-nav pull-right">
+
+        <li class="">
+{#            <a href="{% url 'zinnia_sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">#}
+{#                {% trans "Sitemap" %}#}
+{#            </a>#}
+        </li>
+        <li class="pull-right">
+            <a href="{% url 'entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}"
+               class="feeds">
+                {% trans "RSS Feed" %}
+            </a>
+        </li>
+
+    </ul>
+                        {% endblock %}
+                    </div>
+                </nav>
+        </div>
+  </div>
+  </div>
+
+
+    {% block slider %}{% endblock %}
+    <div class="container">
+      <div class="row">
+        <div id="content" class="hfeed col-xs-12 col-sm-8 col-md-8 col-lg-8">
+          {% block breadcrumbs %}{% endblock %}
+          {% block content %}
+          <div class="links">
+            <h3>{% trans "Useful links" %}</h3>
+            <ul>
+              <li>
+                <a href="{% url 'zinnia_entry_archive_index' %}" title="{% trans "Weblog index" %}">
+                  {% trans "Weblog index" %}
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'zinnia_sitemap' %}" title="{% trans "Sitemap" %}">
+                  {% trans "Sitemap" %}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="search">
+            <h3>{% trans "Search" %}</h3>
+            {% include "zinnia/tags/search_form.html" %}
+          </div>
+          {% endblock content %}
+        </div>
+        <div id="sidebar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          {% block sidebar %}
+          {% endblock sidebar %}
+        </div>
+      </div>
+    </div>
+    <footer class="container">
+
+    </footer>
+    <script type="text/javascript" src="{% static "zinnia_bootstrap/assets/js/jquery.js" %}"></script>
+    <script type="text/javascript" src="{% static "zinnia_bootstrap/bootstrap/js/bootstrap.min.js" %}"></script>
+  {% render_block "js" %}
+  </body>
+</html>

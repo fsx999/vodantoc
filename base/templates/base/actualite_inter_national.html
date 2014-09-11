@@ -1,0 +1,37 @@
+<div class="actus row ">
+    <ul class="nav nav-tabs col-sm-12">
+        <li class="active"><a href="#international" data-toggle="tab">Actualités internationales</a></li>
+        <li><a href="#national" data-toggle="tab">Actualités nationales</a></li>
+    </ul>
+</div>
+<div class="tab-content">
+    <div class="tab-pane active" id="international">
+        <div class="row news">
+            {% for post in posts_inter %}
+                <div class="col-sm-3">
+                    <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt=""/>
+                    {% endif %}
+                    {{ post.html_content|safe }}
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+    <div class="tab-pane" id="national">
+        <div class="news row ">
+            {% for post in posts_nation %}
+                <div class="col-sm-3">
+                    <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt=""/>
+                    {% endif %}
+                    {{ post.html_content|safe }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
