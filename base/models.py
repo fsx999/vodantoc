@@ -120,17 +120,17 @@ class Salle(models.Model):
             self.geocode_error = True
             # TODO: store the exception
 
-    def save(self, *args, **kwargs):
-        # fill geocode data if it is unknown
-        if (self.longitude is None) or (self.latitude is None):
-            self.fill_geocode_data()
-        if self.pk:
-            s = Salle.objects.get(pk=self.pk)
-            if self.adresse_plain != s.adresse_plain:
-                self.fill_geocode_data()
-        else:
-            self.pk = Salle.objects.last().pk + 1
-        super(Salle, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     # fill geocode data if it is unknown
+    #     if (self.longitude is None) or (self.latitude is None):
+    #         self.fill_geocode_data()
+    #     if self.pk:
+    #         s = Salle.objects.get(pk=self.pk)
+    #         if self.adresse_plain != s.adresse_plain:
+    #             self.fill_geocode_data()
+    #     else:
+    #         self.pk = Salle.objects.last().pk + 1
+    #     super(Salle, self).save(*args, **kwargs)
 
 def decodeHtmlText(html):
     """
