@@ -22,6 +22,7 @@ class TestMenu(CMSAttachMenu):
                 nodes.append(NavigationNode(regroupement.nom, reverse('liste_salle',
                                                                       kwargs={'regroupement': regroupement.id}),
                                             id, i+1))
+
         return nodes
 
 menu_pool.register_menu(TestMenu)
