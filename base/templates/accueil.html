@@ -3,19 +3,20 @@
 
 {% block content %}
 
-    <h4 class="text-center">{{ request.current_page|capfirst }}</h4>
-    <section id="showcase" class="showcase ">
-    {% placeholder content %}
-    </section>
-    <section id="agenda">
-        {% placeholder agenda %}
-    </section>
-    <section id="maps">
-        {% placeholder maps %}
-    </section>
-    <section id="forum"><!--col-->
-        {% placeholder forum %}
-    </section>
+<div class="row">
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    {% placeholder content %}
+                        </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                    {% placeholder sidebar %}
+
+            </div>
+        </div>
+
 {% endblock %}
 {% block breadcrumbs %}
     <ol class="breadcrumb">
