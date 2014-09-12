@@ -3,6 +3,11 @@
 
 {% block content %}
 
-        <h4 class="text-center">{{ request.current_page|capfirst }}</h4>
-        {% placeholder content %}
+        <h1 class="text-center">{{ request.current_page|capfirst }}</h1>
+
+        <div class="base_content panel panel-default">
+            <div class="panel-body">
+            {% placeholder content %}
+            </div>
+        </div>
 {% endblock %}
