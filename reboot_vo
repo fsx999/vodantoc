@@ -1,1 +1,1 @@
-kill -HUP `cat /tmp/gunicorn_vo.pid`
+kill -HUP `cat /tmp/gunicorn_vodantoc.pid`
