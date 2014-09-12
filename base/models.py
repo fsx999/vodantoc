@@ -31,10 +31,11 @@ class Professeur(models.Model):
     def __unicode__(self):
         return u"%s %s" % (self.nom, self.prenom)
 
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        if not self.pk:
-            self.pk = Professeur.objects.last().pk + 1
-        super(Professeur, self).save(force_insert, force_update, using, update_fields)
+    # def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+    #     if not self.pk:
+    #         p = Professeur.objects.last().pk
+    #         self.pk = Professeur.objects.last().pk + 1 if p else 1
+    #     super(Professeur, self).save(force_insert, force_update, using, update_fields)
 
 
     class Meta:

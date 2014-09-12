@@ -15,7 +15,7 @@ apphook_pool.register(BlogApp)
 __author__ = 'paul'
 
 class BaseApp(CMSApp):
-    name = _("My Apphook")
+    name = _("Salles")
     urls = ["base.urls"]
     menus = [TestMenu]
     app_name = 'base' \
