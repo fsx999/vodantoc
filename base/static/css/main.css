@@ -1,108 +1,107 @@
-/*@font-face {*/
-    /*font-family: "super font";*/
-    /*src: url('http://vodantoc.fr/static/font/htf1bkup.TTF');*/
-/*}*/
-/*body {*/
-    /*font-size: 13pt;*/
-    /*background-color: #DEDEDE;*/
-/*}*/
-/*p {*/
-    /*margin-bottom: 10pt;*/
-    /*margin-top: 10pt;*/
-/*}*/
-/*.container {*/
-    /*background-color: #ffffff;*/
+@font-face {
+    font-family: "super font";
+    src: url('/static/font/htf1bkup.TTF');
+}
+body {
+    font-size: 13pt;
+    background-color: #DEDEDE;
+}
+p {
+    margin-bottom: 10pt;
+    margin-top: 10pt;
+}
+.container {
+    background-color: #ffffff;
 
 
-/*}*/
-/*.text-souligne{*/
-    /*text-decoration: underline;*/
-/*}*/
-/*.content {*/
-    /*padding-right: 10pt;*/
-    /*padding-left: 10pt;*/
-/*}*/
-/*img {*/
-    /*margin-bottom: 15pt;*/
-    /*margin-top: 15pt;*/
-/*}*/
-/*.header {*/
-    /*font-family: "super font", Helvetica, Arial, sans-serif;*/
+}
+.text-souligne{
+    text-decoration: underline;
+}
+.content {
+    padding-right: 10pt;
+    padding-left: 10pt;
+}
+img {
+    margin-bottom: 15pt;
+    margin-top: 15pt;
+}
+.header {
+    font-family: "super font", Helvetica, Arial, sans-serif;
 
-    /*text-align: center;*/
+    text-align: center;
 
-    /*color: #ffffff;*/
-    /*word-spacing: 6pt;*/
+    color: #ffffff;
+    word-spacing: 6pt;
 
-    /*background-color: #987548;*/
-    /*background-color: #201c1b;*/
-    /*height: 120px;*/
-    /*line-height:100px;*/
+    background-color: #987548;
+    background-color: #201c1b;
+    line-height:100px;
 
-/*}*/
-/*a.header {*/
-    /*margin :100 px;*/
-    /*padding: 0;*/
-/*}*/
-/*.menu{*/
-    /*font-family: "super font", Helvetica, Arial, sans-serif;*/
-    /*font-size: 15pt;*/
-    /*font-style: italic;*/
-    /*letter-spacing: 3px;*/
-    /*font-weight: bold;*/
-    /*margin-bottom: 5px;*/
+}
+a.header {
+    margin :100 px;
+    padding: 0;
+}
+.menu{
+    font-family: "super font", Helvetica, Arial, sans-serif;
+    font-size: 15pt;
+    font-style: italic;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 5px;
 
-/*}*/
-/*.navbar .nav > li > a {*/
-    /*padding: 5px 15px;*/
+}
+.navbar .nav > li > a {
+    padding: 5px 15px;
 
-/*}*/
-/*.nav{*/
-    /*margin: 0 15px;*/
+}
+.nav{
+    margin: 0 15px;
 
 
-/*}*/
-/*.navbar {*/
+}
+.navbar {
 
-    /*margin-bottom: 0;*/
-    /*min-height: 0;*/
-    /*padding: 0;*/
-/*}*/
-/*.header a:hover, a:focus {*/
-    /*text-decoration:none;*/
-    /*color: #000000;*/
-    /*vertical-align:middle;*/
-/*}*/
+    margin-bottom: 0;
+    min-height: 0;
+    padding: 0;
+}
+.header a:hover, a:focus {
+    text-decoration:none;
+    color: #000000;
+    vertical-align:middle;
+}
 
-/*.carousel a:focus {*/
-    /*outline: none;*/
-/*}*/
+.carousel a:focus {
+    outline: none;
+}
 
-/*.carousel .item {*/
-    /*margin-right: auto;*/
-    /*margin-left: auto;*/
+.carousel .item {
+    margin-right: auto;
+    margin-left: auto;
 
-    /*text-align: center;;*/
+    text-align: center;;
 
-/*}*/
-/*.salle address{*/
-    /*margin-top: 0px;*/
-    /*margin-bottom: 0;*/
-    /*padding-top: 0;*/
-    /*padding-bottom: 0;*/
-/*}*/
-/*.recherche{*/
-    /*margin-top: 2px;*/
-    /*margin-bottom: 0px;*/
+}
+.salle address{
+    margin-top: 0px;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.recherche{
+    margin-top: 2px;
+    margin-bottom: 0px;
 
-/*}*/
-/*.recherche input, button{*/
-    /*height: 28px;*/
-    /*padding-top: 0px;*/
-    /*padding-bottom: 0px;*/
+}
+.recherche input, button{
+    height: 28px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 
-/*}*/
-/*.recherche button{*/
-    /*padding-top: 0px;*/
-    /*padding-bottom: 0px;*/
-/*}*/
+}
+.recherche button{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
