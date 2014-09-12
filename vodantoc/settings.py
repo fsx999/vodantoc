@@ -18,8 +18,7 @@ MANAGERS = ADMINS
 LOCALE_PATHS = (PROJECT_ROOT+"/locale",)
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['test-vo-vietnam.narsu.net', 'vo-vietnam.org', 'vo-vietnam.com', 'www.vo-vietnam.com',
-                 'www.vo-vietnam.org']
+ALLOWED_HOSTS = ['test-vodantoc.com', 'vodantoc.com', 'vodantoc.fr', 'www.vodantoc.com', 'vodantoc.fr']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -129,6 +128,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
     'django.template.loaders.eggs.Loader',
+    'app_namespace.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -171,6 +171,7 @@ INSTALLED_APPS = (
     'cms',
     'blog_entry',
     'zinnia_bootstrap',
+    'app_namespace',
     "base",
     'tagging',
     'easy_maps',

@@ -82,7 +82,21 @@
     {% endif %}
 </ol>
   <div class="content">
-{% block content %}{% endblock %}
+{% block content %}
+    <div class="col-sm-8">
+                    <h3 class="text-center">{{ request.current_page|capfirst }}</h3>
+
+
+                    {% placeholder "content" %}
+
+
+                </div>
+                <div class="col-sm-4">
+
+
+                    {% placeholder "sidebar" %}
+
+                </div>{% endblock %}
   </div>
 {% render_block "js" %}
 

@@ -28,7 +28,7 @@
         <script src="{% static "zinnia_bootstrap/assets/js/respond.min.js" %}"></script>
 
     <![endif]-->
-  <link href="{% static 'css/custom-bootstrap.css' %}" rel="stylesheet" media="screen">
+
         <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
     <link rel="shortcut icon" href="{% static "zinnia/img/favicon.ico" %}" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-144-precomposed.png" %}" />
@@ -41,16 +41,14 @@
   <body class="zinnia {% block body-class %}{% endblock body-class %}">
   {% cms_toolbar %}
   <div class="bg-deco-right">
-    <header class="logo-container">
-        <a href="/">
-        <img class="clouds" alt="nuages" src="{% static 'img/clouds.png' %}">
-        <img class="logo-big"
-             alt="Blazon de la Fédération Internationale de Vo Viet Nam FIVV - SLQT Son Long Quyen Thuat"
-             src="{% static 'img/logo-only.png' %}">
-        <img class="logo-small"
-             alt="Blazon de la Fédération Internationale de Vo Viet Nam FIVV - SLQT Son Long Quyen Thuat"
-             src="{% static 'img/logo-sm.png' %}">
-    </header></a>
+    <div class="header clearfix">
+
+            <center>
+                <a rel="home" title="Ecole Francaise de Vo Dan Toc" href="/">
+                    <img src="{% static 'image/site0.jpg' %}" alt=""/>
+                </a></center>
+
+    </div>
   <div class="container">
   <div class="bg-content">
       <nav class="navbar navbar-default row" role="navigation">
@@ -81,7 +79,7 @@
 {#            </a>#}
         </li>
         <li class="pull-right">
-            <a href="{% url 'entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}"
+            <a href="{% url 'zinnia_entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}"
                class="feeds">
                 {% trans "RSS Feed" %}
             </a>
