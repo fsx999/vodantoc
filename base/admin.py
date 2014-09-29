@@ -1,18 +1,20 @@
 # coding=utf-8
-
+from __future__ import unicode_literals
 from djangocms_text_ckeditor.widgets import TextEditorWidget
 from django.db import models
-__author__ = 'paul'
-from easy_maps.widgets import AddressWithMapWidget
 from django.contrib import admin
 from base.models import Professeur, PaysModel, RegroupementSalle
 from base.models import Salle
 from django import forms
+
+
 class form(forms.ModelForm):
     class Meta:
         widgets = {
             'adresse': TextEditorWidget
         }
+
+
 class SalleAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': TextEditorWidget},

@@ -27,21 +27,19 @@ class Professeur(models.Model):
     date_naissance = models.DateField(u"Date de naissance", null=True, blank=True)
     date_creation = models.DateTimeField(auto_now_add=True, editable=False)
     date_update = models.DateTimeField(auto_now=True, auto_now_add=True, editable=False)
+    email = models.EmailField(blank=True, null=True)
+    tel = models.CharField(blank=True, null=True, max_length=15)
 
     def __unicode__(self):
         return u"%s %s" % (self.nom, self.prenom)
-
-    # def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-    #     if not self.pk:
-    #         p = Professeur.objects.last().pk
-    #         self.pk = Professeur.objects.last().pk + 1 if p else 1
-    #     super(Professeur, self).save(force_insert, force_update, using, update_fields)
-
 
     class Meta:
         verbose_name = u"Professeur"
         verbose_name_plural = u"Professeurs"
 
+class Eleve(models.Model):
+    nom = models.CharField(u'Nom', max_length=50)
+    prenom = models.CharField(u'Prenom', max_length=50)
 
 class PaysModel(models.Model):
     label = models.CharField(u"nom pays", max_length=50)
@@ -120,17 +118,6 @@ class Salle(models.Model):
             self.geocode_error = True
             # TODO: store the exception
 
-    # def save(self, *args, **kwargs):
-    #     # fill geocode data if it is unknown
-    #     if (self.longitude is None) or (self.latitude is None):
-    #         self.fill_geocode_data()
-    #     if self.pk:
-    #         s = Salle.objects.get(pk=self.pk)
-    #         if self.adresse_plain != s.adresse_plain:
-    #             self.fill_geocode_data()
-    #     else:
-    #         self.pk = Salle.objects.last().pk + 1
-    #     super(Salle, self).save(*args, **kwargs)
 
 def decodeHtmlText(html):
     """
