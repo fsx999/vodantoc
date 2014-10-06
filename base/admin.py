@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from djangocms_text_ckeditor.widgets import TextEditorWidget
 from django.db import models
 from django.contrib import admin
-from base.models import Professeur, PaysModel, RegroupementSalle
+from base.models import Professeur, PaysModel, RegroupementSalle, Eleve
 from base.models import Salle
 from django import forms
 
@@ -22,7 +22,11 @@ class SalleAdmin(admin.ModelAdmin):
     # form = form
 
 
+class EleveAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(RegroupementSalle)
 admin.site.register(Professeur)
 admin.site.register(PaysModel)
 admin.site.register(Salle, SalleAdmin)
+admin.site.register(Eleve, EleveAdmin)

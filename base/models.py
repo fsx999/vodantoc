@@ -37,9 +37,17 @@ class Professeur(models.Model):
         verbose_name = u"Professeur"
         verbose_name_plural = u"Professeurs"
 
+
 class Eleve(models.Model):
     nom = models.CharField(u'Nom', max_length=50)
     prenom = models.CharField(u'Prenom', max_length=50)
+    email = models.EmailField(u'email', null=True, blank=True)
+    adresse = models.CharField(u'adresse', null=True, blank=True, max_length=200)
+    code_postal = models.CharField(u'code postal', null=True, blank=True, max_length=5)
+    ville = models.CharField(null=True, blank=True, max_length=40)
+    date_naissance = models.DateField(null=True, blank=True)
+
+
 
 class PaysModel(models.Model):
     label = models.CharField(u"nom pays", max_length=50)
