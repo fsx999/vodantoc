@@ -25,6 +25,7 @@ class InscriptionInline(admin.TabularInline):
     model = Inscription
 
 class EleveAdmin(admin.ModelAdmin):
+    list_filter = ('annee',)
     inlines = [InscriptionInline]
     list_editable = ('phone', 'email', 'adresse')
     list_display = ('nom', 'prenom', 'adresse', 'phone', 'email', 'inscriptions')
