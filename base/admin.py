@@ -27,6 +27,7 @@ class InscriptionInline(admin.TabularInline):
 class EleveAdmin(admin.ModelAdmin):
     inlines = [InscriptionInline]
     list_editable = ('phone', )
+    list_display = ('nom', 'prenom', 'phone', 'email')
     search_fields = ('nom', 'prenom')
 
 admin.site.register(RegroupementSalle)
