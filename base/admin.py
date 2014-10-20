@@ -22,7 +22,7 @@ class SalleAdmin(admin.ModelAdmin):
     # form = form
 
 class InscriptionInline(admin.TabularInline):
-    models = Inscription
+    model = Inscription
 
 class EleveAdmin(admin.ModelAdmin):
     inlines = [InscriptionInline]
