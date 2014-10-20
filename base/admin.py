@@ -27,6 +27,8 @@ class InscriptionInline(admin.TabularInline):
 class EleveAdmin(admin.ModelAdmin):
     inlines = [InscriptionInline]
 
+    search_fields = ('nom', 'prenom')
+
 admin.site.register(RegroupementSalle)
 admin.site.register(Professeur)
 admin.site.register(PaysModel)
