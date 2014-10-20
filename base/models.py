@@ -50,8 +50,8 @@ class Eleve(models.Model):
     prenom = models.CharField(u'Prenom', max_length=50)
     email = models.EmailField(u'email', null=True, blank=True)
     adresse = models.CharField(u'adresse', null=True, blank=True, max_length=200)
-    code_postal = models.CharField(u'code postal', null=True, blank=True, max_length=5)
-    ville = models.CharField(null=True, blank=True, max_length=40)
+    code_postal = models.CharField(u'code postal', null=True, blank=True, max_length=5, default="92130")
+    ville = models.CharField(null=True, blank=True, max_length=40, default="issy les moulineaux")
     date_naissance = models.DateField(null=True, blank=True)
 
     def __unicode__(self):
