@@ -25,7 +25,7 @@ class InscriptionInline(admin.TabularInline):
     models = Inscription
 
 class EleveAdmin(admin.ModelAdmin):
-    inlines = InscriptionInline
+    inlines = [InscriptionInline]
 
 admin.site.register(RegroupementSalle)
 admin.site.register(Professeur)
