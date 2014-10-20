@@ -31,6 +31,13 @@ class EleveAdmin(admin.ModelAdmin):
     search_fields = ('nom', 'prenom')
     ordering = ('nom', )
 
+    def inscriptions(self, obj):
+        reponse = ""
+        for x in obj.inscription.all().order_by('annee'):
+            reponse += "{} <br>".format(x.annee.annee)
+        return reponse
+    inscriptions.allow_tags = True
+
 admin.site.register(RegroupementSalle)
 admin.site.register(Professeur)
 admin.site.register(PaysModel)

@@ -57,16 +57,16 @@ class Eleve(models.Model):
     date_naissance = models.DateField(null=True, blank=True)
 
     def __unicode__(self):
-        return "{} {}".format(self.nom, self.prenom)
+        return u"{} {}".format(self.nom, self.prenom)
 
 class Inscription(models.Model):
     annee = models.ForeignKey(Annee)
-    eleve = models.ForeignKey(Eleve)
+    eleve = models.ForeignKey(Eleve, related_name="inscription")
     salle = models.ForeignKey('Salle')
     principale = models.BooleanField(default=True)
 
     def __unicode__(self):
-        return "{} {} {}".format(self.eleve, self.salle, self.eleve)
+        return u"{} {} {}".format(self.eleve, self.salle, self.eleve)
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         if not self.annee:
