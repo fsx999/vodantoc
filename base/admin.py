@@ -48,7 +48,7 @@ class InscriptionAdmin(admin.ModelAdmin):
     search_fields = ('eleve__nom', 'eleve__prenom')
     inlines = (PaiementInline,)
     list_filter = ('annee', )
-
+    ordering = ('eleve__nom',)
     def get_queryset(self, request):
         annee_en_cour = Annee.objects.get(annee_en_cours=True)
         return super(InscriptionAdmin, self).get_queryset(request).filter(annee=annee_en_cour)
