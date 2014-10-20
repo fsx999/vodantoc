@@ -42,6 +42,8 @@ class Annee(models.Model):
     annee = models.CharField(null=True, blank=True, max_length=4)
     annee_en_cours = models.BooleanField(default=True)
 
+    def __unicode__(self):
+        return unicode(self.annee)
 
 class Eleve(models.Model):
     nom = models.CharField(u'Nom', max_length=50)
@@ -52,12 +54,17 @@ class Eleve(models.Model):
     ville = models.CharField(null=True, blank=True, max_length=40)
     date_naissance = models.DateField(null=True, blank=True)
 
+    def __unicode__(self):
+        return "{} {}".format(self.nom, self.prenom)
 
 class Inscription(models.Model):
     annee = models.ForeignKey(Annee)
     eleve = models.ForeignKey(Eleve)
     salle = models.ForeignKey('Salle')
     principale = models.BooleanField(default=True)
+
+    def __unicode__(self):
+        return "{} {} {}".format(self.eleve, self.salle, self.eleve)
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         if not self.annee:
