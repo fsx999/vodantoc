@@ -88,7 +88,7 @@ class ClassPaiement(models.Model):
         return unicode(self.label)
 
 class Paiement(models.Model):
-    type = models.ForeignKey(TypePaiement, default='C', blank=True)
+    type_paiement = models.ForeignKey(TypePaiement)
     classe = models.ForeignKey(ClassPaiement)
     inscription = models.ForeignKey(Inscription)
     montant = models.FloatField()
