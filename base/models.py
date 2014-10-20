@@ -48,10 +48,12 @@ class Annee(models.Model):
 class Eleve(models.Model):
     nom = models.CharField(u'Nom', max_length=50)
     prenom = models.CharField(u'Prenom', max_length=50)
-    email = models.EmailField(u'email', null=True, blank=True)
+
     adresse = models.CharField(u'adresse', null=True, blank=True, max_length=200)
     code_postal = models.CharField(u'code postal', null=True, blank=True, max_length=5, default="92130")
     ville = models.CharField(null=True, blank=True, max_length=40, default="issy les moulineaux")
+    email = models.EmailField(u'email', null=True, blank=True)
+    phone = models.CharField(max_length=12, null=True, blank=True)
     date_naissance = models.DateField(null=True, blank=True)
 
     def __unicode__(self):
