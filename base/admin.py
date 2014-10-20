@@ -50,7 +50,7 @@ class InscriptionAdmin(admin.ModelAdmin):
     list_filter = ('annee', )
 
     def get_queryset(self, request):
-        annee_en_cour = Annee.objects.get(annee_en_cousr=True)
+        annee_en_cour = Annee.objects.get(annee_en_cours=True)
         return super(InscriptionAdmin, self).get_queryset(request).filter(annee=annee_en_cour)
 
 
