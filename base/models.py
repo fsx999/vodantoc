@@ -73,6 +73,21 @@ class Inscription(models.Model):
             self.annee = Annee.objects.get(annee_en_cours=True)
         super(Inscription, self).save(force_insert, force_update, using, update_fields)
 
+class TypePaiement(models.Model):
+    type = models.CharField(max_length=3)
+    label = models.CharField(max_length=60)
+
+class ClassPaiement(models.Model):
+    type = models.CharField(max_length=3)
+    label = models.CharField(max_length=60)
+
+class Paiement(models.Model):
+    type = models.ForeignKey(TypePaiement, default='C', blank=True)
+    classe = models.ForeignKey(ClassPaiement)
+    inscription = models.ForeignKey(Inscription)
+    montant = models.FloatField()
+    numero_cheque = models.CharField(max_length=20, null=True, blank=True)
+    banque = models.CharField(max_length=60, null=True, blank=True)
 
 class PaysModel(models.Model):
     label = models.CharField(u"nom pays", max_length=50)

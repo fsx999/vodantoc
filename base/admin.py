@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 from djangocms_text_ckeditor.widgets import TextEditorWidget
 from django.db import models
 from django.contrib import admin
-from base.models import Professeur, PaysModel, RegroupementSalle, Eleve, Inscription, Annee
+from base.models import Professeur, PaysModel, RegroupementSalle, Eleve, Inscription, Annee, TypePaiement, ClassPaiement, \
+    Paiement
 from base.models import Salle
 from django import forms
 
@@ -40,9 +41,20 @@ class EleveAdmin(admin.ModelAdmin):
         return reponse
     inscriptions.allow_tags = True
 
+class PaiementInline(admin.TabularInline):
+    model = Paiement
+
+class InscriptionAdmin(admin.ModelAdmin):
+    inlines = (PaiementInline,)
+    list_filter = ('annee', )
+
+
 admin.site.register(RegroupementSalle)
 admin.site.register(Professeur)
 admin.site.register(PaysModel)
 admin.site.register(Annee)
 admin.site.register(Salle, SalleAdmin)
 admin.site.register(Eleve, EleveAdmin)
+admin.site.register(TypePaiement)
+admin.site.register(ClassPaiement)
+admin.site.register(Inscription, InscriptionAdmin)
