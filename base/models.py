@@ -77,9 +77,15 @@ class TypePaiement(models.Model):
     type = models.CharField(max_length=3)
     label = models.CharField(max_length=60)
 
+    def __unicode__(self):
+        return unicode(self.label)
+
 class ClassPaiement(models.Model):
     type = models.CharField(max_length=3)
     label = models.CharField(max_length=60)
+
+    def __unicode__(self):
+        return unicode(self.label)
 
 class Paiement(models.Model):
     type = models.ForeignKey(TypePaiement, default='C', blank=True)
