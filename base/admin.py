@@ -26,8 +26,8 @@ class InscriptionInline(admin.TabularInline):
 
 class EleveAdmin(admin.ModelAdmin):
     inlines = [InscriptionInline]
-    list_editable = ('phone', )
-    list_display = ('nom', 'prenom', 'phone', 'email', 'inscriptions')
+    list_editable = ('phone', 'email', 'adresse')
+    list_display = ('nom', 'prenom', 'adresse', 'phone', 'email', 'inscriptions')
     readonly_fields = ('inscriptions',)
     search_fields = ('nom', 'prenom')
     ordering = ('nom', )
