@@ -49,7 +49,6 @@ class InscriptionAdmin(admin.ModelAdmin):
     inlines = (PaiementInline,)
     list_filter = ('annee', )
     ordering = ('eleve__nom',)
-    readonly_fields = ('eleve__nom', 'eleve__prenom')
 
     def get_queryset(self, request):
         annee_en_cour = Annee.objects.get(annee_en_cours=True)
