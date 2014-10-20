@@ -29,6 +29,7 @@ class EleveAdmin(admin.ModelAdmin):
     list_editable = ('phone', )
     list_display = ('nom', 'prenom', 'phone', 'email')
     search_fields = ('nom', 'prenom')
+    ordering = ('nom', )
 
 admin.site.register(RegroupementSalle)
 admin.site.register(Professeur)
