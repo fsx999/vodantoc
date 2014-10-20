@@ -35,7 +35,7 @@ class EleveAdmin(admin.ModelAdmin):
     def inscriptions(self, obj):
         reponse = ""
         for x in obj.inscription.all().order_by('annee'):
-            reponse += "{} <br>".format(x.annee.annee)
+            reponse += "{} {}<br>".format(x.annee.annee, x.salle)
         return reponse
     inscriptions.allow_tags = True
 
