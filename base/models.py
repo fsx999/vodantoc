@@ -38,6 +38,11 @@ class Professeur(models.Model):
         verbose_name_plural = u"Professeurs"
 
 
+class Annee(models.Model):
+    annee = models.CharField(null=True, blank=True, max_length=4)
+    annee_en_cours = models.BooleanField(default=True)
+
+
 class Eleve(models.Model):
     nom = models.CharField(u'Nom', max_length=50)
     prenom = models.CharField(u'Prenom', max_length=50)
@@ -47,6 +52,17 @@ class Eleve(models.Model):
     ville = models.CharField(null=True, blank=True, max_length=40)
     date_naissance = models.DateField(null=True, blank=True)
 
+
+class Inscription(models.Model):
+    annee = models.ForeignKey(Annee)
+    eleve = models.ForeignKey(Eleve)
+    salle = models.ForeignKey('Salle')
+    principale = models.BooleanField(default=True)
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        if not self.annee:
+            self.annee = Annee.objects.get(annee_en_cours=True)
+        super(Inscription, self).save(force_insert, force_update, using, update_fields)
 
 
 class PaysModel(models.Model):
