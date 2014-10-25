@@ -22,7 +22,7 @@ p {
     padding-right: 10pt;
     padding-left: 10pt;
 }
-img {
+.base{
     margin-bottom: 15pt;
     margin-top: 15pt;
 }
