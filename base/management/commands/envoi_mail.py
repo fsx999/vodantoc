@@ -11,7 +11,7 @@ class Command(BaseCommand):
         text = u"""
 Cher(e)s adhérent(e)s
 
-Nous vous informons que le cours de Vo Dan Toc du mardi 22 mars 2015 qui a lieu au gymnase La Source est annulé car la salle a été réquisitionnée pour l'équipe féminine de handball.
+Nous vous informons que le cours de Vo Dan Toc du mardi 24 mars 2015 qui a lieu au gymnase La Source est annulé car la salle a été réquisitionnée pour l'équipe féminine de handball.
 Les cours reprennent donc le vendredi 27 mars 2015 à 18h pour les enfants et 19h pour les adultes.
 
 A bientôt.
