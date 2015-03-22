@@ -20,4 +20,7 @@ L'école française de Vo Dan Toc
 
          """
         for x in Eleve.objects.filter(inscription__salle__pk=1, inscription__annee__annee=2014, email__isnull=False, inscription__principale=True):
-            send_mail(obj, text, 'ef.vodantoc@gmail.com', [x.email])
+            try:
+                send_mail(obj, text, 'ef.vodantoc@gmail.com', [x.email])
+            except:
+                pass
