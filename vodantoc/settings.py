@@ -157,10 +157,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
     'django.core.context_processors.media',
     'django.core.context_processors.csrf',
-    'sekizai.context_processors.sekizai',
     'django.core.context_processors.request',
-    'sekizai.context_processors.sekizai',
+
     'django.core.context_processors.static',
+    'sekizai.context_processors.sekizai',
     'cms.context_processors.cms_settings',
     'zinnia.context_processors.version',
 )
