@@ -286,8 +286,9 @@ ACCOUNT_ACTIVATION_DAYS = 1
 
 ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'
 
-
+TEXT_SAVE_IMAGE_FUNCTION='cmsplugin_filer_image.integrations.ckeditor.create_image_plug'
 CMSPLUGIN_FILER_FOLDER_VIEW_OPTIONS = (("list", "Liste"), ("list_z", "Liste blog"))
+STYLE_CHOICES = (("list", "Liste"), ("list_z", "Liste blog"))
 CMSPLUGIN_ZINNIA_APP_MENUS = []
 SOUTH_MIGRATION_MODULES = {
         'easy_thumbnails': 'easy_thumbnails.south_migrations',
