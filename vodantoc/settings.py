@@ -194,7 +194,7 @@ INSTALLED_APPS = (
     'mptt',
     'menus',
     'south',
-'cmsplugin_zinnia',
+    'cmsplugin_zinnia',
     'djangocms_style',
     'djangocms_column',
     'djangocms_flash',
@@ -294,3 +294,8 @@ CMSPLUGIN_ZINNIA_APP_MENUS = []
 SOUTH_MIGRATION_MODULES = {
         'easy_thumbnails': 'easy_thumbnails.south_migrations',
     }
+ZINNIA_AUTO_CLOSE_COMMENTS_AFTER = 0
+
+ZINNIA_AUTO_CLOSE_PINGBACKS_AFTER = 0
+
+ZINNIA_AUTO_CLOSE_TRACKBACKS_AFTER = 0
