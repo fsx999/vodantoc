@@ -286,6 +286,7 @@ ACCOUNT_ACTIVATION_DAYS = 1
 
 ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'
 
+
 CMSPLUGIN_FILER_FOLDER_VIEW_OPTIONS = (("list", "Liste"), ("list_z", "Liste blog"))
 CMSPLUGIN_ZINNIA_APP_MENUS = []
 SOUTH_MIGRATION_MODULES = {
