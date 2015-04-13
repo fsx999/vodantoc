@@ -157,7 +157,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
     'django.core.context_processors.media',
     'django.core.context_processors.csrf',
-    'django.core.context_processors.tz',
+    'sekizai.context_processors.sekizai',
     'django.core.context_processors.request',
     'sekizai.context_processors.sekizai',
     'django.core.context_processors.static',
