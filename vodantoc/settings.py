@@ -168,6 +168,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
 
 INSTALLED_APPS = (
+     'sekizai',
     'cms',
     'blog_entry',
     'zinnia_bootstrap',
@@ -193,7 +194,7 @@ INSTALLED_APPS = (
     'mptt',
     'menus',
     'south',
-    'sekizai',
+'cmsplugin_zinnia',
     'djangocms_style',
     'djangocms_column',
     'djangocms_flash',
@@ -207,7 +208,7 @@ INSTALLED_APPS = (
     'cmsplugin_filer_video',
     'vodantoc',
     'zinnia',
-    'cmsplugin_zinnia',
+
     'calendarium',
     'reversion',
 )
