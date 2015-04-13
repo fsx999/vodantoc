@@ -13,7 +13,7 @@ class Migration(SchemaMigration):
 
         # Adding field 'Paiement.type_paiement'
         db.add_column(u'base_paiement', 'type_paiement',
-                      self.gf('django.db.models.fields.related.ForeignKey')(default='', to=orm['base.TypePaiement']),
+                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, to=orm['base.TypePaiement']),
                       keep_default=False)
 
 
