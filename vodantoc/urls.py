@@ -26,7 +26,7 @@ urlpatterns = patterns('',
                        # url(r'^admin_tools/', include('admin_tools.urls')),
                         url(r'^salles/', include('base.urls')),
 
-                       url(r'^comments/', include('django.contrib.comments.urls')),
+                       url(r'^comments/', include('django_comments.urls')),
 
                        url(r'^', include('cms.urls')),
 

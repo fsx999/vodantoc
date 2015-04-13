@@ -9,7 +9,7 @@
 
 {% endaddtoblock %}
 
-
+{% if object.view_option == "list" %}
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-{% comment %}{% elif object.view_option == "list_z" %}
+{% elif object.view_option == "list_z" %}
 
     <h3 class="panel-title">{% firstof object.title object.folder.name %}</h3>
 
@@ -71,6 +71,6 @@
         {% endif %}
     </div>
 
-{% else %}{% endcomment %}
+{% endif %}
 
 
