@@ -21,7 +21,7 @@
                 {% if folder_images %}
 
                     {% for image in folder_images %}
-                        {% if forloop.counter0|divisibleby:12 and not forloop.first%}
+                        {% if forloop.counter|divisibleby:12 and not forloop.first%}
                         <div class="row">
                         {% endif %}
                             <div class="col-xs-1">
@@ -32,7 +32,7 @@
                                 </a>
 
                             </div>
-                        {% if forloop.counter0|divisibleby:12 and not forloop.first%}
+                        {% if forloop.counter|divisibleby:12 and not forloop.first%}
                         </div>
                         {% endif %}
                     {% endfor %}
