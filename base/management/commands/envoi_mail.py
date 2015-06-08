@@ -9,14 +9,22 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         obj = "Annulation du cours de Vo Dan Toc du mardi 24 mars 2015"
         text = u"""
-Cher(e)s adhérent(e)s
+Chers Vo-shins,
 
-Nous vous informons que le cours de Vo Dan Toc du mardi 24 mars 2015 qui a lieu au gymnase La Source est annulé car la salle a été réquisitionnée pour l'équipe féminine de handball.
-Les cours reprennent donc le vendredi 27 mars 2015 à 18h pour les enfants et 19h pour les adultes.
+C'est avec plaisir que nous vous convions à la fête de fin d'année de l'EFVDT.
+Elle se déroulera ce samedi 13 juin à partir de 18h00, au théâtre de l'Espace Icare 31 boulevard Gambetta 92130 Issy Les Moulineaux.
 
-A bientôt.
-Martialement vôtre.
-L'école française de Vo Dan Toc
+A cette occasion, emmenez famille et amis afin de leur faire découvrir le Vo Dan Toc grâce au spectacle de fin d'année.
+
+Assistez à la remise des diplômes des enfants.
+
+Un apéritif dinatoire clôturera la soirée pour lequelle chacun prévoira boissons et gourmandises.
+
+Venez nombreux.
+
+
+L'EFVDT
+
 
          """
         for x in Eleve.objects.filter(inscription__salle__pk=1, inscription__annee__annee=2014, email__isnull=False, inscription__principale=True):
