@@ -7,23 +7,23 @@ class Command(BaseCommand):
     help = "My shiny new management command."
 
     def handle(self, *args, **options):
-        obj = "Annulation du cours de Vo Dan Toc du mardi 24 mars 2015"
+        obj = "Invitation à la fête de l'école française de Vo Dan Toc"
         text = u"""
 Chers Vo-shins,
 
-C'est avec plaisir que nous vous convions à la fête de fin d'année de l'EFVDT.
+C'est avec plaisir que nous vous convions à la fête de fin d'année de l'école française de Vo Dan Toc.
 Elle se déroulera ce samedi 13 juin à partir de 18h00, au théâtre de l'Espace Icare 31 boulevard Gambetta 92130 Issy Les Moulineaux.
 
 A cette occasion, emmenez famille et amis afin de leur faire découvrir le Vo Dan Toc grâce au spectacle de fin d'année.
 
 Assistez à la remise des diplômes des enfants.
 
-Un apéritif dinatoire clôturera la soirée pour lequelle chacun prévoira boissons et gourmandises.
+Un apéritif dinatoire clôturera la soirée pour lequel chacun prévoira boissons et gourmandises.
 
 Venez nombreux.
 
 
-L'EFVDT
+L'l'école française de Vo Dan Toc
 
 
          """
